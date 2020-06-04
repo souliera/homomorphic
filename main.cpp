@@ -69,12 +69,12 @@ int main(int argc, char* argv[]) {
 
     lire_image_pgm(argv[1], imgClr, size);
     msgClr = readMsg(argv[2]);
-    writeTo1LSBRandom(imgClr, imgHid, msgClr, atoi(argv[3]));
-    ecrire_image_pgm((char*)"rsc/hide_1LSB_random.pgm", imgHid, height, width);
+    writeTo8LSB(imgClr, imgHid, msgClr);
+    ecrire_image_pgm((char*)"rsc/hide_8LSB.pgm", imgHid, height, width);
 
-    lire_image_pgm(argv[1], imgHid, size);
-    msgClr = readTo1LSBRandom(imgHid, size, atoi(argv[3]));
-    writeMsg("rsc/messageTest3.txt", msgClr);
+    // lire_image_pgm(argv[1], imgHid, size);
+    // msgClr = readTo1LSBRandom(imgHid, size, atoi(argv[3]));
+    // writeMsg("rsc/messageTest3.txt", msgClr);
 
     /*
     lire_image_pgm(argv[1], imgClr, size);
